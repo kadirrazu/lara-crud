@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('authenticate');
 });
+
+
+use App\Http\Controllers\AuthenticateController;
+
+Route::post('/authenticate', [AuthenticateController::class, 'login']);
+

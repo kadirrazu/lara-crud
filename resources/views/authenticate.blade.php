@@ -27,8 +27,12 @@
                     <h1 class="auth-title">Authentication:</h1>
                     <p class="auth-subtitle mb-5">Please authenticate yourself as a valid user of this application.</p>
 
+                    @if($errors->any())
+                        {!! implode('', $errors->all('<div class="alert alert-danger">:message</div>')) !!}
+                    @endif
+
                     
-                    <form action="authenticate" method="POST">
+                    <form action="{{ route('authenticate') }}" method="POST">
                         @csrf
 
                         <div class="form-group position-relative has-icon-left mb-4">
